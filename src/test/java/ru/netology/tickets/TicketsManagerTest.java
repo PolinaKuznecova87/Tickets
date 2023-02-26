@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TicketsManagerTest {
     TicketsRepository repo = new TicketsRepository();
     TicketsManager manager = new TicketsManager(repo);
-    TicketsPriceComparator priceComparator = new TicketsPriceComparator();
+
 
 
     @Test
