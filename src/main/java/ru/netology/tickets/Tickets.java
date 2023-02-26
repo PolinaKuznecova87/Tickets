@@ -29,6 +29,9 @@ public class Tickets implements Comparable<Tickets> {
         return to;
     }
 
+    public int getPrice() {
+        return price;
+    }
 
     @Override
     public int compareTo(Tickets o) {
