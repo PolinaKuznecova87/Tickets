@@ -9,7 +9,6 @@ public class TicketsManagerTest {
     TicketsManager manager = new TicketsManager(repo);
 
 
-
     @Test
     public void shouldAllTickets() {
         Tickets tickets1 = new Tickets(11, 10_700, "SVO", "BJS", 4);
