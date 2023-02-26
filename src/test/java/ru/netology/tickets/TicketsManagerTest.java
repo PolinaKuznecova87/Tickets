@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TicketsManagerTest {
     TicketsRepository repo = new TicketsRepository();
     TicketsManager manager = new TicketsManager(repo);
+    TicketsPriceComparator priceComparator = new TicketsPriceComparator();
 
 
     @Test
@@ -47,7 +48,7 @@ public class TicketsManagerTest {
         manager.add(tickets5);
 
         Tickets[] expected = {tickets1, tickets4, tickets2};
-        Tickets[] actual = manager.findAll("SVO", "BJS");
+        Tickets[] actual = manager.findAll("SVO", "BJS", new TicketsPriceComparator());
         Assertions.assertArrayEquals(expected, actual);
 
 
