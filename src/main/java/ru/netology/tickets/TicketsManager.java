@@ -15,6 +15,13 @@ public class TicketsManager {
     }
 
     public Tickets[] findAll(String from, String to) {
+        Tickets[] findingTickets = findAll(from, to);
+
+    if (findingTickets == null) {
+            throw new NotFoundTicketsException("Ticket with airport name: " + from + to+ " not found");
+
+        }
+    
 
         Tickets[] result = new Tickets[0];
         for (Tickets tickets : repo.findAll()) {

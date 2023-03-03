@@ -52,4 +52,47 @@ public class TicketsManagerTest {
 
 
     }
+    @Test
+    public void shouldSortToOneTickets() {
+        Tickets tickets1 = new Tickets(11, 10_700, "SVO", "BJS", 4);
+        Tickets tickets2 = new Tickets(12, 68_890, "SVO", "BJS", 21);
+        Tickets tickets3 = new Tickets(13, 19_500, "KZN", "OVB", 13);
+        Tickets tickets4 = new Tickets(14, 62_100, "SVO", "BJS", 23);
+        Tickets tickets5 = new Tickets(15, 143_800, "JVO", "NYC", 17);
+
+
+        manager.add(tickets1);
+        manager.add(tickets2);
+        manager.add(tickets3);
+        manager.add(tickets4);
+        manager.add(tickets5);
+
+        Tickets[] expected = {tickets5};
+        Tickets[] actual = manager.findAll("JVO", "NYC");
+        Assertions.assertArrayEquals(expected, actual);
+
+
+    }
+    @Test
+    public void shouldSortToNoTickets() {
+        Tickets tickets1 = new Tickets(11, 10_700, "SVO", "BJS", 4);
+        Tickets tickets2 = new Tickets(12, 68_890, "SVO", "BJS", 21);
+        Tickets tickets3 = new Tickets(13, 19_500, "KZN", "OVB", 13);
+        Tickets tickets4 = new Tickets(14, 62_100, "SVO", "BJS", 23);
+        Tickets tickets5 = new Tickets(15, 143_800, "JVO", "NYC", 17);
+
+
+        manager.add(tickets1);
+        manager.add(tickets2);
+        manager.add(tickets3);
+        manager.add(tickets4);
+        manager.add(tickets5);
+
+        Assertions.assertThrows(NotFoundTicketsException.class, () -> {
+           manager.findAll("AER","DME");
+        });
+
+
+
+    }
 }
