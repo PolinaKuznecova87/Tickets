@@ -6,6 +6,7 @@ public class TicketsRepository {
     public TicketsRepository() {
         this.tickets = new Tickets[0];
     }
+    Tickets[] ticket = new Tickets[0];
 
 
     public void add(Tickets ticket) {

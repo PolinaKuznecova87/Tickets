@@ -18,7 +18,7 @@ public class TicketsManager {
         Tickets[] allTickets = repo.findAll();
 
         if (allTickets == null || allTickets.length == 0) {
-            throw new NotFoundTicketsException("Ticket with airport name: " + from + to + " not found");
+            throw new NotFoundTicketsException("Ticket not found");
 
         }
 
@@ -38,9 +38,9 @@ public class TicketsManager {
 
         }
         if (result.length == 0) {
-            throw new
-                    NotFoundTicketsException("Tickets not found");
+            throw new NotFoundTicketsException("Ticket not found");
         }
+
         Arrays.sort(result);
         return result;
     }

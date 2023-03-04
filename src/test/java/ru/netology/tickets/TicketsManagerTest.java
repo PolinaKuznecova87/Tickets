@@ -96,4 +96,21 @@ public class TicketsManagerTest {
 
 
     }
+    @Test
+    public void shouldFindTicketWithFrom() {
+        Tickets tickets1 = new Tickets(16, 10_700, "SVO", "BJS", 4);
+        Tickets tickets2 = new Tickets(17, 68_890, "SVO", "BJS", 21);
+        Tickets tickets3 = new Tickets(18, 19_500, "KZN", "OVB", 13);
+        Tickets tickets4 = new Tickets(19, 62_100, "SVO", "BJS", 23);
+        Tickets tickets5 = new Tickets(20, 143_800, "JVO", "NYC", 17);
+
+
+
+
+        Assertions.assertThrows(NotFoundTicketsException.class, () -> {
+            manager.findAll("SVO", "DME");
+        });
+
+
+    }
 }
