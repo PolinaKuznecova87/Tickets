@@ -52,6 +52,7 @@ public class TicketsManagerTest {
 
 
     }
+
     @Test
     public void shouldSortToOneTickets() {
         Tickets tickets1 = new Tickets(11, 10_700, "SVO", "BJS", 4);
@@ -73,6 +74,7 @@ public class TicketsManagerTest {
 
 
     }
+
     @Test
     public void shouldSortToNoTickets() {
         Tickets tickets1 = new Tickets(11, 10_700, "SVO", "BJS", 4);
@@ -89,9 +91,8 @@ public class TicketsManagerTest {
         manager.add(tickets5);
 
         Assertions.assertThrows(NotFoundTicketsException.class, () -> {
-           manager.findAll("AER","DME");
+            manager.findAll("AER", "DME");
         });
-
 
 
     }

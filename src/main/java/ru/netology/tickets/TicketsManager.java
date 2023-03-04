@@ -15,16 +15,16 @@ public class TicketsManager {
     }
 
     public Tickets[] findAll(String from, String to) {
-        Tickets[] findingTickets = findAll(from, to);
+        Tickets[] allTickets = repo.findAll();
 
-    if (findingTickets == null) {
-            throw new NotFoundTicketsException("Ticket with airport name: " + from + to+ " not found");
+        if (allTickets == null || allTickets.length == 0) {
+            throw new NotFoundTicketsException("Ticket with airport name: " + from + to + " not found");
 
         }
-    
+
 
         Tickets[] result = new Tickets[0];
-        for (Tickets tickets : repo.findAll()) {
+        for (Tickets tickets : allTickets) {
             if (matches(tickets, from, to)) {
                 Tickets[] tmp = new Tickets[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
@@ -36,6 +36,10 @@ public class TicketsManager {
 
             }
 
+        }
+        if (result.length == 0) {
+            throw new
+                    NotFoundTicketsException("Tickets not found");
         }
         Arrays.sort(result);
         return result;

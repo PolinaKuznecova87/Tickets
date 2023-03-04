@@ -1,7 +1,12 @@
 package ru.netology.tickets;
 
 public class TicketsRepository {
-    Tickets[] tickets = new Tickets[0];
+    private Tickets[] tickets;
+
+    public TicketsRepository() {
+        this.tickets = new Tickets[0];
+    }
+
 
     public void add(Tickets ticket) {
 
